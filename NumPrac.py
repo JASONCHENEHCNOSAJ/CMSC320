@@ -40,7 +40,7 @@ print("After reshaping to 4,5, it looks like", x)
 
 
 #Other Numpy Functions
-
+sdfsdfsdf
 
 #Slicing in Numpy
 #You take array slices by adding a colon in the brackets
