@@ -31,13 +31,23 @@ print("The mean of this array is", np.mean(x,axis=0))
 
 # (d) How do you reshape a NumPy array to a specific shape?
 # Ans: This is pretty straightforward. All you do is call np.reshape() and passing in the
-# dimensions as arguments
+# new dimensions as arguments
 
-x = np.array(np.random.randint(0,101,(5,5)))
+x = np.array(np.random.randint(0,101,(6,5)))
 print("The Orig x is", x)
-np.reshape(x, (4,5))
-print("After reshaping to 4,5, it looks like", x)
+ 
+print("After reshaping to 2x15 it looks like", np.reshape(x,(2,15)))
 
+# (e) How do you concatenate two NumPy arrays vertically?
+# Ans: You use the vstack function. This allows you stack arrays vertically.
+# np.vstack() and pass in the arrays you want to stack. Note in order
+# for this to work, the num of columns for each array need to be the same
+
+x = np.array(np.random.randint(4,20,(6,4)))
+y = np.array(np.random.randint(12,20,(4,4)))
+print("Arr x is", x)
+print("Arr y is", y)
+print("Arr after stacking x and y is",np.vstack((x,y)))
 
 #Other Numpy Functions
 
