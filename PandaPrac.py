@@ -18,8 +18,6 @@ To get the rows where a specific columns meets a condition, you do
 df.loc[df['col name'] == value]
 """
 
-
-
 # initialize list of lists
 data = [['tom', 10], ['nick', 15], ['juli', 14]]
   
@@ -31,3 +29,28 @@ print(df)
 
 # if i only want the rows where the Name column is nick,
 print("if i only want the rows where the Name column is nick,", df.loc[df['Name'] == 'nick'])
+
+# (b) How do you join two Pandas DataFrames on a specific column?
+""" Ans: you join 2 pandas dataframes with the merge function
+pd.merge()
+You specify the columns with the "on" parameter
+"""
+
+# creating a dataframe
+df1 = pd.DataFrame({'Name':['Raju', 'Rani', 'Geeta', 'Sita', 'Sohit'],
+                    'Marks':[80, 90, 75, 88, 59]})
+  
+# creating another dataframe with different data
+df2 = pd.DataFrame({'Name':['Raju', 'Divya', 'Geeta', 'Sita'],
+                    'Grade':['A', 'A', 'B', 'A'],
+                    'Rank':[3, 1, 4, 2 ],
+                    'Gender':['Male', 'Female', 'Female', 'Female']})
+  
+# applying merge with more parameters
+df1.merge(df2[['Grade', 'Name']], on = 'Name', how = 'left')
+
+# (c) How do you group a Pandas DataFrame by a specific column and calculate the mean of
+# another column?
+
+# Ans: You use the groupby() and mean() function for dataframes
+print(df.groupby('Name')['Age'].mean())
