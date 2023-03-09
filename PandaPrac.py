@@ -53,4 +53,34 @@ df1.merge(df2[['Grade', 'Name']], on = 'Name', how = 'left')
 # another column?
 
 # Ans: You use the groupby() and mean() function for dataframes
+# This finds groups the dataframe by name and calculates the mean of the Age column
+
 print(df.groupby('Name')['Age'].mean())
+
+# (d) How do you convert a Pandas DataFrame to a NumPy array?
+# Ans:You use the pandas dataframe to_numpy() function
+# this takes a dataframe and converts it to a numpy 2darray with with each element representing a column in df
+fields = {
+    
+    'Champion': ['Irelia','Sona','Garen'],
+    'Type': ['Melee','Range','Melee'],
+    'Lane': ['Top','Support','Top'],
+    'Age': [23,20,19]
+    
+}
+df = pd.DataFrame(fields)
+print("LOL Dataframe", df)
+
+#Turning it to numpy arr using to_numpy()
+
+print("LOL df as a numpy arr", df.to_numpy())
+
+# (e) How do you create a new column in a pandas dataframe that contains squared values of
+# another column?
+
+# Ans: You do this using the .apply() function. you call your df and initialize the name of your new column. Then you
+# reference the column you want to base your new values off of followed by the apply function and referencing labmda x:
+# sort of like a for loop for each value of age
+df['sq Age'] = df['Age'].apply(lambda x: x*x)
+
+print("dataframe after adding new columns is", df)
